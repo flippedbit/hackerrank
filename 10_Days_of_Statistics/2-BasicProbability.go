@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// probability of tossing two fair size-sided dice that their sum will be at most 9
+	// probability of tossing two fair six-sided dice that their sum will be at most 9
 	var S []int
 	var A []int
 	for dice1 := 1; dice1 <= 6; dice1++ {
