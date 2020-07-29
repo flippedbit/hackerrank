@@ -16,6 +16,11 @@ func exponent(num float64, exp float64) float64 {
 	return total
 }
 
+func geometricDistribution(n float64, p float64) float64 {
+	var q float64 = 1 - p
+	return exponent(q, n-1) * p
+}
+
 func main() {
 	// probability that a machine produces a defective product is 1/3.
 	// what is the probability that the first defect is found during
@@ -43,9 +48,8 @@ func main() {
 	}
 
 	p := probabilityList[0] / probabilityList[1]
-	q := 1 - p
 
 	// g(n,p) = q^(n-1) * p
-	g := exponent(q, n-1) * p
+	g := geometricDistribution(n, p)
 	fmt.Println(fmt.Sprintf("%.3f", g))
 }
