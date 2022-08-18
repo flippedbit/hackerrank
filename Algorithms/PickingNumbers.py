@@ -43,14 +43,22 @@ def pickingNumbers(a):
 
     max = 0
     for i in range(len(a)):
-        count = 0
+        count = 1
+        currentHighest = a[i]
+        currentLowest = a[i]
         for j in range(len(a)):
             if i == j:
                 pass
             else:
-                if abs(a[i] - a[j]) <= 1:
+                if abs(currentHighest - a[j]) <=1 and abs(currentLowest - a[j]) <= 1:
                     count = count + 1
-
+                    if a[j] > currentHighest:
+                        currentHighest = a[j]
+                    elif a[j] < currentLowest:
+                        currentLowest = a[j]
+                    else:
+                        pass
+                    
         if count > max:
             max = count
 
