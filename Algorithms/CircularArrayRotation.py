@@ -66,14 +66,21 @@ def circularArrayRotation(a, k, queries):
     
     # THIS IS WRONG TOO
     # print(f"Start: {a=} {k=} {queries=}")
-    tmp = [0 for a in range(len(a))]
-    for i in range(len(a)):
-        location = (i + k) % len(a)
-        print(f"{location=} {a[i]=}")
-        tmp[location] = a[i]
-        print(f"{tmp=}")
+    # tmp = [0 for _ in range(len(a))]
+    # for i in range(len(a)):
+    #     location = (i + k) % len(a)
+    #     print(f"{location=} {a[i]=}")
+    #     tmp[location] = a[i]
+    #     print(f"{tmp=}")
+    # THIS IS WRONG TOO
+
+    for j in range(k):
+        popped = a.pop()
+        a.reverse()
+        a.append(popped)
+        a.reverse()
     
-    return [tmp[i] for i in queries]
+    return [a[i] for i in queries]
 
 if __name__ == '__main__':
     # fptr = open(os.environ['OUTPUT_PATH'], 'w')
